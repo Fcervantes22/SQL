@@ -1,0 +1,32 @@
+#In this sequel, I'm querying a database with multiple tables to provide general statistics of NFL Superbowls.
+
+1. What are the average points scored by winning team?
+SELECT AVG (Winner_Pts) 
+FROM superbowls; 
+
+2. What are the average points scored by the losing team?
+SELECT AVG (Loser_Pts)
+FROM superbowls; 
+
+3. Which teams have scored 40 or more points in the Superbowl?
+SELECT winner
+FROM superbowls
+WHERE winner_Pts >= 40;
+
+4. In which Superbowls did the winner score 24 points or less AND took place in florida? 
+SELECT SB
+FROM superbowls 
+WHERE winner_Pts <= 24
+AND state = 'Florida'; 
+
+5. Which teams have won 3 or more Superbowls?
+SELECT winner 
+FROM superbowls
+GROUP BY winner
+HAVING COUNT (*) >= 3;
+
+6. Which teams have lost 3 or more Superbowls? 
+SELECT Loser
+FROM SUPERBOWLS
+GROUP BY LOSER
+HAVING COUNT (*) >= 3; 
